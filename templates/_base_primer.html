@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta name="charset" content="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+      <link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
+</style>
+    </head>
+    <body>
+      <button type="button" onclick="startReload()">Start</button>
+      <button type="button" onclick="stopReload()">Stop</button>
+
+      <v-app id="app">
+        {{ html|safe }}
+        {% block content %}
+        {% endblock %}
+      </v-app>
+
+      <script>
+
+      var myTimeOut = setTimeout(function(){
+          window.location.reload(1);
+      }, 1000);
+      
+      function startReload() {
+      }
+      
+      function stopReload() {
+        clearTimeout(myTimeOut);
+      }
+    </script>
+    </body>
+</html>

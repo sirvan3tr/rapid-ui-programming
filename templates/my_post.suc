@@ -1,0 +1,39 @@
+v-card(class="mb-4" elevation="0" outlined width="100%")
+  v-card-text
+    div(class="d-flex d-flex-row mb-2")
+      div
+        div(class="mt-n1 text-h6 font-weight-bold text--primary") Looking for python dev
+        div 2 hrs ago
+    p I am looking for amazing python developers
+    v-card(outlined class="my-2")
+      v-row(class="ma-2 d-flex d-flex-row")
+        div(col-2)
+          v-avatar(size="38" color="secondary") B
+        div(class="ml-2")
+          span(class="font-weight-black") Hello world
+          p This is an amazing idea that you will not believe
+          a(href="#") View more
+    v-chip(small class="mr-1" outlined) python
+    v-chip(small class="mr-1" outlined) git 
+    v-chip(small class="mr-1" outlined) django 
+    v-chip(small outlined) Scala
+
+
+  v-divider
+  v-card-actions
+
+    v-btn(class="ml-2 white" depressed small)
+      v-icon(left class="ma-0 mr-2") mdi-share-outline
+      span Share
+
+    v-tooltip(bottom)
+      template(v-slot:activator="{ on, attrs }")
+        v-btn(depressed icon v-bind="attrs" v-on="on")
+          v-icon() mdi-heart-outline
+      span Tooltip
+
+    v-spacer 
+    v-badge(overlap inline content="10")
+      v-btn(class="mr-n3" color="primary" rounded outlined small)
+        v-icon(left class="ma-0 mr-2") mdi-face
+        span connections 

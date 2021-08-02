@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta name="charset" content="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+
+<style>
+#app {
+  background: #eee !important;
+}
+</style>
+    </head>
+    <body>
+
+      <button type="button" onclick="startReload()">Start</button>
+      <button type="button" onclick="stopReload()">Stop</button>
+
+<div id="app2">
+  <component v-for="field in fields" v-bind:is="field.type" :key="field.id"></component>
+
+  <button type="button" v-on:click="addFormElement('form-input')">Add Textbox</button>
+  <button type="button" v-on:click="addFormElement('form-select')">Add Select</button>
+  <button type="button" v-on:click="addFormElement('form-textarea')">Add Textarea</button>
+</div>
+
+<script type="x-template" id="form-input">
+  <div>
+    <label>Text</label>
+    <input type="text" />
+  </div>
+</script>
+
+<script type="x-template" id="form-select">
+  <div>
+    <label>Select</label>
+    <select>
+      <option>Option 1</option>
+      <option>Option 2</option>
+    </select>
+  </div>
+</script>
+
+<script type="x-template" id="form-textarea">
+  <div>
+    <label>Textarea</label>
+    <textarea></textarea>
+  </div>
+</script>
+      <v-app id="app">
+        {{ html|safe }}
+        {% block content %}
+        {% endblock %}
+      </v-app>
+
+      <script>
+
+      var myTimeOut = setTimeout(function(){
+          window.location.reload(1);
+      }, 1000);
+      
+      function startReload() {
+      }
+      
+      function stopReload() {
+        clearTimeout(myTimeOut);
+      }
+        var vuejs = new Vue({el: '#app', vuetify: new Vuetify({
+          theme: {
+          themes: {
+            light: {
+              //primary: '#6200ea', // #E53935
+              primary: '#4285F4', // Google Blue
+              //primary: '#405DE6', // Royal Blue Instagram
+              secondary: '#555555', // #FFCDD2
+              accent: '#3F51B5', // #3F51B5
+              action: '#0f8243',
+              red: '#E50914', // Netflix Red
+              grey: '#AAB8C2',
+              light_grey: '#E1E8ED',
+              extra_light_grey: '#F5F8FA',
+            },
+          },
+        },
+      })})
+
+
+
+
+Vue.component('post', {
+  data () {
+    return {
+      someVar: 'Test'
+    }
+  },
+  props: {
+    templateHtml: {
+      templateHtml: true,
+      type: String
+    }
+  },
+  created () {
+    this.$options.template = this.templateHtml
+  }
+})
+
+var htmlData = '<div>Hello</div>';
+
+    </script>
+    </body>
+</html>
+

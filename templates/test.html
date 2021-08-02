@@ -1,0 +1,80 @@
+include templates/post
+include templates/my_post
+script templates/post
+
+v-main
+  div(id="posts")
+    Hell
+  v-row(class="pa-6")
+    v-col(cols=3)
+      v-card(outlined elevation="1")
+        v-toolbar(outlined elevation="1")
+          v-toolbar-title Your Posts 
+          v-spacer
+          v-btn(icon)
+            v-icon mdi-magnify
+        v-list(subheader)
+          v-subheader Click to find matches for your post
+          v-list-item
+            v-list-item-avatar(size="32" class="primary") S
+            v-list-item-content
+              v-list-item-title
+                span Great post
+          v-list-item
+            v-list-item-avatar(size="32" class="primary") S
+            v-list-item-content
+              v-list-item-title
+                span Great post
+    v-col(cols=6)
+      v-card(class="mb-4" outlined)
+        v-card-text Showing matches for all of your posts.
+      +my_post
+      +post
+      +post
+      +post
+    v-col(cols=3)
+      v-card(class="mb-4" outlined)
+        v-card-text Ad
+
+      v-card(class="mb-4" outlined)
+        v-list(subheader)
+          v-subheader Top Posts
+          v-list-item
+            v-list-item-avatar(size="32" class="grey") S
+            v-list-item-content
+              v-list-item-title
+                span Great post
+          v-list-item
+            v-list-item-avatar(size="32" class="primary") S
+            v-list-item-content
+              v-list-item-title
+                span Great post
+
+
+      v-card(class="mb-4" outlined)
+        v-list(subheader)
+          v-subheader People you might be interested in
+          v-list-item(link)
+            v-list-item-avatar(size="32" class="grey") S
+            v-list-item-content
+              v-list-item-title
+                span Salman Doodoo
+          v-list-item(link)
+            v-list-item-avatar(size="32" class="primary") S
+            v-list-item-content
+              v-list-item-title
+                span Jordan Smith
+
+
+script(type="x-template" id="form-input")
+  div
+    label Text
+    input(type="text")
+
+script(type="x-template" id="form-select")
+  div
+    label Select
+
+script(type="x-template" id="form-textarea")
+  div I am a text area
+
